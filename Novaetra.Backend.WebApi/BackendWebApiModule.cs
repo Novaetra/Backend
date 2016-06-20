@@ -14,7 +14,7 @@ namespace Novaetra.Backend
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(BackendApplicationModule).Assembly, "app")
+                .ForAll<IApplicationService>(typeof(BackendApplicationModule).Assembly, "backend")
                 .Build();
         }
     }

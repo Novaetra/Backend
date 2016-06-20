@@ -104,6 +104,11 @@
   <ItemGroup>
     <Compile Include="EntityFramework\BackendDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\BackendRepositoryBase.cs" />
+    <Compile Include="EntityFramework\UserMap.cs" />
+    <Compile Include="Migrations\201606200045476_InitialCreate.cs" />
+    <Compile Include="Migrations\201606200045476_InitialCreate.Designer.cs">
+      <DependentUpon>201606200045476_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="BackendDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +122,11 @@
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>Novaetra.Backend.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606200045476_InitialCreate.resx">
+      <DependentUpon>201606200045476_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

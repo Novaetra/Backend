@@ -1,0 +1,27 @@
+﻿<div class="panel panel-default" ng-controller="backend.views.users.list as vm">
+
+    <div class="panel-heading" style="position: relative;">
+        <div class="row">
+
+            <!-- Title -->
+            <h3 class="panel-title col-xs-6">
+                @L("Users") - <span>{{vm.getTaskCountText()}}</span>
+            </h3>
+
+            <!-- Search Box -->
+            <div class="col-xs-6 text-right">
+                <input type="text" ng-model="searchString" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Task list -->
+    <ul class="list-group" ng-repeat="user in vm.users">
+        <li class="list-group-item">
+            <span class="task-assignedto">{{user.displayName}}</span>
+            <span class="task-assignedto">{{user.email}}</span>
+            <span class="task-creationtime">{{user.creationTime | momentFromNow}}</span>
+        </li>
+    </ul>
+
+</div>

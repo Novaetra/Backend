@@ -23,6 +23,11 @@
                     templateUrl: '/App/Main/views/home/home.cshtml',
                     menu: 'Home' //Matches to name of 'Home' menu in BackendNavigationProvider
                 })
+                .state('users', {
+                    url: '/users',
+                    templateUrl: '/App/Main/views/users/users.cshtml',
+                    menu: 'Users' //Matches to name of 'Users' menu in BackendNavigationProvider
+                })
                 .state('about', {
                     url: '/about',
                     templateUrl: '/App/Main/views/about/about.cshtml',

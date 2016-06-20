@@ -16,6 +16,7 @@ namespace Novaetra.Backend.EntityFramework.Repositories
         //add common methods for all repositories
     }
 
+    //a shortcut for entities that have integer Ids
     public abstract class BackendRepositoryBase<TEntity> : BackendRepositoryBase<TEntity, int>
         where TEntity : class, IEntity<int>
     {

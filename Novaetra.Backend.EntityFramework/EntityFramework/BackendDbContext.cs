@@ -1,13 +1,13 @@
-﻿using Abp.EntityFramework;
+﻿using System.Data.Entity;
+using Abp.EntityFramework;
+using Novaetra.Backend.Entities;
 
 namespace Novaetra.Backend.EntityFramework
 {
     public class BackendDbContext : AbpDbContext
     {
-        //TODO: Define an IDbSet for each Entity...
-
-        //Example:
-        //public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<Account> Accounts { get; set; }
+        public virtual IDbSet<User> Users { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -28,6 +28,12 @@ namespace Novaetra.Backend.EntityFramework
             : base(nameOrConnectionString)
         {
 
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new UserMap());
         }
     }
 }

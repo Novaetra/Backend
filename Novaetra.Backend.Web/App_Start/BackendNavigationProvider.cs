@@ -23,6 +23,13 @@ namespace Novaetra.Backend.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "Users",
+                        new LocalizableString("Users", BackendConsts.LocalizationSourceName),
+                        url: "#/users",
+                        icon: "fa fa-users"
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
                         "About",
                         new LocalizableString("About", BackendConsts.LocalizationSourceName),
                         url: "#/about",

@@ -84,6 +84,9 @@
   <ItemGroup>
     <Compile Include="BackendConsts.cs" />
     <Compile Include="BackendCoreModule.cs" />
+    <Compile Include="Cryptography\Hasher.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
