@@ -25,10 +25,5 @@ namespace Novaetra.Backend.Entities
         public virtual DateTime CreationTime { get; set; }
         public virtual bool IsDeleted { get; set; }
         public virtual DateTime? DeletionTime { get; set; }
-
-        public User()
-        {
-            CreationTime = DateTime.Now;
-        }
     }
 }

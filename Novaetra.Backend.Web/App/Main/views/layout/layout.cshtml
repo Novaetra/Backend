@@ -39,7 +39,7 @@
     <script src="~/api/AbpServiceProxies/GetAll?type=angular&v=@(Clock.Now.Ticks)"></script>
     <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
 
-    @Scripts.Render("~/Bundles/App/Main/js")
+    @Scripts.Render("~/Bundles/App/Main/js", "/Bundles/App/partials.js")
 
 </head>
 <body>

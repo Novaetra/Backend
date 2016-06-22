@@ -1,11 +1,10 @@
 ﻿<div class="panel panel-default" ng-controller="backend.views.users.list as vm">
-
     <div class="panel-heading" style="position: relative;">
         <div class="row">
 
             <!-- Title -->
             <h3 class="panel-title col-xs-6">
-                @L("Users") - <span>{{vm.getTaskCountText()}}</span>
+                @L("Users")
             </h3>
 
             <!-- Search Box -->
@@ -19,9 +18,50 @@
     <ul class="list-group" ng-repeat="user in vm.users">
         <li class="list-group-item">
             <span class="task-assignedto">{{user.displayName}}</span>
-            <span class="task-assignedto">{{user.email}}</span>
             <span class="task-creationtime">{{user.creationTime | momentFromNow}}</span>
         </li>
     </ul>
+</div>
 
+<div class="panel panel-default" ng-controller="backend.views.users.create as vm">
+    <div class="panel-heading" style="position: relative;">
+        <div class="row">
+            <!-- Title -->
+            <h3 class="panel-title col-xs-6">
+                @L("CreateUser")
+            </h3>
+        </div>
+    </div>
+
+    <form id="CreateUserForm" role="form" name="createUserForm" novalidate ng-submit="vm.createUser()">
+        <div class="form-group">
+            <label for="DisplayName">@L("DisplayName")</label>
+            <input id="DisplayName" type="text" name="displayName" placeholder="@L("EnterDisplayName")" ng-model="vm.user.displayName" class="form-control" required>
+            <div ng-messages="createUserForm.displayName.$error">
+                <div ng-messages-include="partials/messages.html"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Email">@L("Email")</label>
+            <input id="Email" type="email" name="email" placeholder="@L("EnterEmail")" ng-model="vm.user.email" class="form-control" required>
+            <div ng-messages="createUserForm.email.$error">
+                <div ng-messages-include="partials/messages.html"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Password">@L("Password")</label>
+            <input id="Password" type="password" name="password" ng-model="vm.user.password" class="form-control" required>
+            <div ng-messages="createUserForm.password.$error">
+                <div ng-messages-include="partials/messages.html"></div>
+            </div>
+            <label for="ConfirmPassword">@L("ConfirmPassword")</label>
+            <input id="ConfirmPassword" type="password" name="confirmPassword" ng-model="vm.user.confirmPassword" class="form-control" required compare-to="vm.user.password">
+            <div ng-messages="createUserForm.confirmPassword.$error">
+                <div ng-messages-include="partials/messages.html"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button ng-disabled="createUserForm.$invalid" type="submit" class="btn btn-primary">@L("CreateUser")</button>
+        </div>
+    </form>
 </div>

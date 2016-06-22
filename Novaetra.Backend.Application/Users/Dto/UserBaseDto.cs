@@ -9,17 +9,22 @@ namespace Novaetra.Backend.Users.Dto
 {
     public abstract class UserBaseDto
     {
+        protected UserBaseDto()
+        {
+            IterationCount = 20000;
+        }
+
         public virtual string Password
         {
             set
             {
                 Salt = Hasher.GenerateSalt(8 * 16);
-                Hasher.PBKDF2Sha256GetBytes(8 * 32, Hasher.GetBytes(value), Salt, 20000);
+                PasswordHash = Hasher.PBKDF2Sha256GetBytes(8 * 32, Hasher.GetBytes(value), Salt, IterationCount);
             }
         }
 
         public byte[] Salt { get; private set; }
-        public byte[] Hash { get; private set; }
-        public int IterationCount { get; private set; }
+        public byte[] PasswordHash { get; private set; }
+        public int IterationCount { get; }
     }
 }

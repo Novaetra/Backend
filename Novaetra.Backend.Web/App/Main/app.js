@@ -4,6 +4,7 @@
     var app = angular.module('app', [
         'ngAnimate',
         'ngSanitize',
+        'ngMessages',
 
         'ui.router',
         'ui.bootstrap',
@@ -15,7 +16,7 @@
     //Configuration for Angular UI routing.
     app.config([
         '$stateProvider', '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider) {
+        function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('home', {

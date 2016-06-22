@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
+using Abp.UI;
 using AutoMapper;
 using Novaetra.Backend.Entities;
 using Novaetra.Backend.Users.Dto;
@@ -52,11 +53,22 @@ namespace Novaetra.Backend.Users
 
         public void CreateUser(CreateUserInput input)
         {
-            Logger.Info("Creating a task for input: " + input);
+            Logger.Info("Creating a user for input: " + input);
+
+
+            User existing = _userRepository.GetAll()
+                .First(u => u.DisplayName.Equals(input.DisplayName, StringComparison.CurrentCultureIgnoreCase));
+            if (existing != null)
+                throw new UserFriendlyException(L("UserWithDisplayNameAlreadyExists")); // TODO: Replace this with a CreateUserOutput
 
             var user = new User { DisplayName = input.DisplayName, Email = input.Email };
-
-            // TODO: Create account data aswell
+            var account = new Account
+            {
+                IterationCount = input.IterationCount,
+                PasswordHash = input.PasswordHash,
+                Salt = input.Salt
+            };
+            user.Account = account;
 
             _userRepository.Insert(user);
         }

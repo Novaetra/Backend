@@ -17,5 +17,10 @@ namespace Novaetra.Backend.Users.Dto
 
         [Required]
         public override string Password { set { base.Password = value; } }
+
+        public override string ToString()
+        {
+            return $"{nameof(DisplayName)}: {DisplayName}, {nameof(Email)}: {Email}";
+        }
     }
 }
