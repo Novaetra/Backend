@@ -34,3 +34,21 @@ body {
   left: 2em;
   opacity: 0;
 }
+
+
+form .ng-invalid {
+	border-color: red;
+	outline-color: red;
+}
+
+form .ng-valid {
+	border-color: green;
+	outline-color: green;
+}
+
+form .messages {
+	font-size: smaller;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	color: red;
+}

@@ -57,7 +57,7 @@ namespace Novaetra.Backend.Users
 
 
             User existing = _userRepository.GetAll()
-                .First(u => u.DisplayName.Equals(input.DisplayName, StringComparison.CurrentCultureIgnoreCase));
+                .FirstOrDefault(u => u.DisplayName.Equals(input.DisplayName, StringComparison.CurrentCultureIgnoreCase));
             if (existing != null)
                 throw new UserFriendlyException(L("UserWithDisplayNameAlreadyExists")); // TODO: Replace this with a CreateUserOutput
 

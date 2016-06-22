@@ -36,14 +36,14 @@
     <form id="CreateUserForm" role="form" name="createUserForm" novalidate ng-submit="vm.createUser()">
         <div class="form-group">
             <label for="DisplayName">@L("DisplayName")</label>
-            <input id="DisplayName" type="text" name="displayName" placeholder="@L("EnterDisplayName")" ng-model="vm.user.displayName" class="form-control" required>
+            <input id="DisplayName" type="text" name="displayName" ng-model="vm.user.displayName" class="form-control" required>
             <div ng-messages="createUserForm.displayName.$error">
                 <div ng-messages-include="partials/messages.html"></div>
             </div>
         </div>
         <div class="form-group">
             <label for="Email">@L("Email")</label>
-            <input id="Email" type="email" name="email" placeholder="@L("EnterEmail")" ng-model="vm.user.email" class="form-control" required>
+            <input id="Email" type="email" name="email" placeholder="@L("Email")" ng-model="vm.user.email" class="form-control" required>
             <div ng-messages="createUserForm.email.$error">
                 <div ng-messages-include="partials/messages.html"></div>
             </div>
