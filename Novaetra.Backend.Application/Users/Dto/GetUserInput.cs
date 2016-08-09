@@ -9,7 +9,7 @@ using Abp.Runtime.Validation;
 
 namespace Novaetra.Backend.Users.Dto
 {
-    public class GetUserInput : IInputDto, ICustomValidate
+    public class GetUserInput : ICustomValidate
     {
         [Required]
         public string SearchString { get; set; }

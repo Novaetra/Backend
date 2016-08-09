@@ -8,7 +8,7 @@ using Abp.Application.Services.Dto;
 
 namespace Novaetra.Backend.Users.Dto
 {
-    public class CreateUserInput : UserBaseDto, IInputDto
+    public class CreateUserInput : UserBaseDto
     {
         [Required]
         public string DisplayName { get; set; }
