@@ -1,13 +1,17 @@
 ﻿using System.Data.Entity;
 using Abp.EntityFramework;
-using Novaetra.Backend.Entities;
+using Abp.Zero.EntityFramework;
+using Novaetra.Backend.MultiTenancy;
+using Novaetra.Backend.Authorization;
+using Novaetra.Backend.Users;
+using System.Data.Common;
 
 namespace Novaetra.Backend.EntityFramework
 {
-    public class BackendDbContext : AbpDbContext
+    public class BackendDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        public virtual IDbSet<Account> Accounts { get; set; }
-        public virtual IDbSet<User> Users { get; set; }
+        // Define an IDbSet for each Entity...
+        // E.g.: public virtual IDbSet<Entity> Entities { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -21,8 +25,8 @@ namespace Novaetra.Backend.EntityFramework
         }
 
         /* NOTE:
-         *   This constructor is used by ABP to pass connection string defined in BackendDataModule.PreInitialize.
-         *   Notice that, actually you will not directly create an instance of BackendDbContext since ABP automatically handles it.
+         *   This constructor is used by ABP to pass connection string defined in ModuleZeroSampleProjectDataModule.PreInitialize.
+         *   Notice that, actually you will not directly create an instance of ModuleZeroSampleProjectDbContext since ABP automatically handles it.
          */
         public BackendDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
@@ -30,10 +34,10 @@ namespace Novaetra.Backend.EntityFramework
 
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new UserMap());
-        }
+        //public BackendDbContext (DbConnection connection)
+        //    : base(connection, true)
+        //{
+
+        //}
     }
 }

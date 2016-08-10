@@ -13,7 +13,7 @@ namespace Novaetra.Backend.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606200045476_InitialCreate"; }
+            get { return "201608100007145_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

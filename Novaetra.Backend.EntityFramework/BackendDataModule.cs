@@ -1,12 +1,12 @@
 ﻿using System.Data.Entity;
 using System.Reflection;
-using Abp.EntityFramework;
-using Abp.Modules;
 using Novaetra.Backend.EntityFramework;
+using Abp.Zero.EntityFramework;
+using Abp.Modules;
 
 namespace Novaetra.Backend
 {
-    [DependsOn(typeof(AbpEntityFrameworkModule), typeof(BackendCoreModule))]
+    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(BackendCoreModule))]
     public class BackendDataModule : AbpModule
     {
         public override void PreInitialize()
@@ -17,7 +17,6 @@ namespace Novaetra.Backend
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-            Database.SetInitializer<BackendDbContext>(null);
         }
     }
 }

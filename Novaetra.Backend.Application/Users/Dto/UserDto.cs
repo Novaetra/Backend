@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace Novaetra.Backend.Users.Dto
 {
-    public class UserDto
+    [AutoMapFrom(typeof(User))]
+    public class UserDto : EntityDto<long>
     {
-        public string DisplayName { get; set; }
-
-        public DateTime CreationTime { get; set; }
+        public string UserName { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string EmailAddress { get; set; }
     }
 }
