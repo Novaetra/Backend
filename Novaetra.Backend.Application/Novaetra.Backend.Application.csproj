@@ -92,7 +92,6 @@
   <ItemGroup>
     <Compile Include="BackendApplicationModule.cs" />
     <Compile Include="BackendAppServiceBase.cs" />
-    <Compile Include="DtoMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Dto\CreateUserInput.cs" />
     <Compile Include="Users\Dto\GetUserInput.cs" />

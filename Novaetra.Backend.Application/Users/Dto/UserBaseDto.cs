@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Novaetra.Backend.Cryptography;
+using Abp.Application.Services.Dto;
 
 namespace Novaetra.Backend.Users.Dto
 {
-    public abstract class UserBaseDto
+    public abstract class UserBaseDto : EntityDto
     {
         protected UserBaseDto()
         {

@@ -7,7 +7,7 @@ using Abp.Application.Services.Dto;
 
 namespace Novaetra.Backend.Users.Dto
 {
-    public class UpdateUserInput : UserBaseDto, IInputDto
+    public class UpdateUserInput : UserBaseDto
     {
         public int UserId { get; set; }
         public string DisplayName { get; set; }

@@ -9,7 +9,11 @@ namespace Novaetra.Backend
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-            DtoMappings.Map();
+        }
+
+        public override void PostInitialize()
+        {
+            base.PostInitialize();
         }
     }
 }
